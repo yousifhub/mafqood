@@ -1,0 +1,13 @@
+# This file specifies which files and directories should be ignored when building the Docker image.
+
+node_modules
+npm-debug.log
+Dockerfile
+docker-compose.yml
+*.md
+*.log
+/uploads
+/src/uploads
+/src/css/*.css.map
+/src/js/*.js.map
+/src/partials/*.php~

@@ -1,0 +1,442 @@
+:root {
+  --color-dark: #1e1e2f;
+  --color-light: #ffffff;
+  --color-primary: #51104e;
+  --color-secondary: #51104e;
+  --color-accent: #a29bfe;
+  --color-warning: #ff7675;
+  --color-background: #f8f8ff;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s ease-in-out;
+  --radius: 1.25rem;
+}
+
+/*==== FOUND TEXT HEADER ====*/
+.found-text {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  padding: 2rem 0;
+  border-top: 2px solid var(--color-accent);
+  box-shadow: var(--shadow);
+  margin-bottom: 6rem;
+  margin-top: 5rem;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0.900rem 1.375rem;
+  transform: translateY(20px);
+}
+
+.found-text h1 {
+  text-align: center;
+  color: var(--color-light);
+  font-size: 1.75rem;
+  letter-spacing: 1px;
+}
+
+/* General Form Styling */
+.found-content {
+  width: 100%;
+  max-width: 50rem;
+  margin: auto;
+  padding: 2.5rem;
+  background: var(--color-light);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  text-align: left;
+}
+
+/* Form Headings */
+.found-content .heading {
+  color: var(--color-primary);
+  font-weight: bold;
+  font-size: 1.8rem;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 0.75rem;
+  margin-bottom: 2rem;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.found-content label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-dark);
+  text-align: center;
+}
+
+/*==== IMAGE BOX ====*/
+.person-img {
+  background: #f9f9f9;
+  padding: 5rem;
+  border-radius: var(--radius);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.img-area {
+  background: #eaeaea;
+  height: 25rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed var(--color-accent);
+}
+
+.img-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+}
+
+.img-area::before {
+  content: attr(data-img);
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--color-light);
+  font-size: 1rem;
+  font-weight: bold;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: var(--transition);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.img-area.active:hover::before {
+  opacity: 1;
+}
+
+/*==== BUTTON ====*/
+.select-image {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.select-image:hover {
+  background-color: var(--color-accent);
+  transform: scale(1.05);
+}
+
+/*==== INPUT FIELDS ====*/
+.found-content input,
+.found-content select {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid #ccc;
+  border-radius: 0.75rem;
+  background-color: #f8f8ff;
+  font-size: 1rem;
+  color: var(--color-dark);
+  transition: var(--transition);
+}
+
+.found-content input:focus,
+.found-content select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 5px rgba(81, 16, 78, 0.5);
+}
+
+/*==== RADIO BUTTONS (التعديلات الأساسية هنا) ====*/
+/*==== RADIO BUTTONS - التعديل النهائي ====*/
+.person-gender,
+.person-health {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  /* زيادة المسافة بين الخيارات */
+  margin: rem 0;
+  flex-wrap: wrap;
+  align-items: stretch;
+  /* محاذاة العناصر بشكل عمودي */
+}
+
+.person-gender .gen,
+.person-health .content div {
+  display: flex;
+  flex-direction: column-reverse;
+  /* النص فوق الراديو */
+  align-items: center;
+  gap: 0.1rem;
+  align-items: stretch;
+}
+
+.person-gender .gen label,
+.person-health .content label {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  /* لون بنفسجي داكن */
+  font-weight: bold;
+  text-transform: capitalize;
+  align-items: stretch;
+  /* أول حرف كبير */
+}
+
+.person-gender .gen input[type="radio"],
+.person-health .content input[type="radio"] {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--color-secondary);
+  position: relative;
+  appearance: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-items: stretch;
+}
+
+/* النقطة الداخلية عند التحديد */
+.person-gender .gen input[type="radio"]:checked::before,
+.person-health .content input[type="radio"]:checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+}
+
+/* عنوان المجموعة */
+.radio-group-title {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1.3rem;
+  color: var(--color-dark);
+  margin-bottom: 0rem;
+  font-weight: bold;
+
+}
+
+.person-health .content {
+  display: flex;
+  /* عرض العناصر بجانب بعضها */
+  flex-wrap: wrap;
+  /* السماح بتغليف العناصر إذا كانت الشاشة صغيرة */
+  gap: 1.5rem;
+  /* مسافة بين الخيارات */
+  justify-content: center;
+  /* توسيط العناصر أفقياً */
+  align-items: center;
+  /* توسيط العناصر رأسياً */
+
+  /* مسافة أسفل المجموعة */
+}
+
+.person-health .content div {
+  display: flex;
+  flex-direction: column;
+  /* ترتيب النص فوق الزر */
+  align-items: center;
+  /* توسيط النص والزر */
+  gap: 0.2rem;
+  /* مسافة صغيرة بين النص والزر */
+}
+
+.person-health .content input[type="radio"] {
+  appearance: none;
+  /* إزالة التصميم الافتراضي */
+  width: 1px;
+  /* تصغير عرض الزر */
+  height: 1px;
+  /* تصغير ارتفاع الزر */
+  border: 1px solid var(--color-primary);
+  border-radius: 50%;
+  /* جعلها دائرية */
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: var(--color-light);
+}
+
+.person-health .content input[type="radio"]:checked {
+  background-color: white;
+  /* لون الخلفية عند التحديد */
+  border-color: rgb(81, 20, 83);
+  /* تغيير لون الإطار عند التحديد */
+}
+
+.person-health .content label {
+  font-size: 0.9rem;
+  /* تصغير حجم النص */
+  color: var(--color-dark);
+  cursor: pointer;
+  /* إضافة مؤشر اليد عند التمرير فوق النص */
+  font-weight: bold;
+  /* جعل النص بولد */
+  text-align: center;
+  gap: 0.2rem;
+  /* توسيط النص */
+}
+
+/*==== SUBMIT BUTTON ====*/
+input[type="submit"] {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  width: 100%;
+  margin-top: 2rem;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--color-secondary);
+  transform: scale(1.05);
+}
+
+/*==== MESSAGES ====*/
+.error,
+.success {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.error {
+  background-color: #2d3436;
+  color: #ff7675;
+  border: 1px solid #636e72;
+}
+
+.success {
+  background-color: #2d3436;
+  color: #74b9ff;
+  border: 1px solid #636e72;
+}
+
+/*==== LOGIN POPUP ====*/
+.login-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.562);
+  z-index: 111;
+}
+
+.login-error {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 22rem;
+  background: #2d3436;
+  color: #ffffff;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid #636e72;
+}
+
+.login-error p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.login-error div {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.login-error button {
+  padding: 0.75rem 1.25rem;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 0.75rem;
+  color: var(--color-light);
+  font-weight: bold;
+  transition: var(--transition);
+  cursor: pointer;
+  min-width: 100px;
+}
+
+.login-error button:hover {
+  background-color: var(--color-accent);
+  transform: scale(1.05);
+}
+
+.login-error button a {
+  color: var(--color-light);
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.error-top {
+  color: #ff7675;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  text-align: right;
+  display: block;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .found-content {
+    padding: 2rem;
+  }
+
+  .img-area {
+    height: 12rem;
+  }
+
+  .select-image {
+    padding: 0.75rem 1rem;
+  }
+
+  input,
+  select {
+    padding: 0.75rem;
+  }
+
+  input[type="submit"] {
+    padding: 0.75rem 1rem;
+  }
+
+  /* تعديلات الراديو بوتنز للشاشات الصغيرة */
+  .person-gender,
+  .person-health {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,28 @@
+FROM node:16
+
+# Install PHP and required extensions
+RUN apt-get update && apt-get install -y php-cli php-mysqli
+
+# Set the working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY src/package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy application code
+COPY src/ .
+
+# Create uploads directory with proper permissions
+RUN mkdir -p uploads && chmod 777 uploads
+
+# Add static file caching headers
+RUN echo 'app.use(express.static("public", { maxAge: "1d" }));' >> js/server.js
+
+# Expose port 3000
+EXPOSE 3000
+
+# Start the Node.js server
+CMD ["node", "js/server.js"]

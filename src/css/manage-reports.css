@@ -1,0 +1,254 @@
+.found-text {
+    background-color: #eee;
+    padding: 20px 0;
+    /* border-top: 1px solid #1365b2; */
+    margin-bottom: 30px;
+}
+.found-text h1 {
+    text-align: center;
+    color: #bb0a11;
+    font-size: 25px;
+}
+.con {
+    padding: 10px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.report {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 100px 15px 15px;
+    background-color: #eee;
+    border-radius: 10px;
+}
+.report .info {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+}
+.report .data {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.report .img {
+    width: 100px;
+    min-width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.report .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.report .data .box {
+    display: flex;
+    padding: 3px 10px;
+    background-color: white;
+    border-radius: 5px;
+    /* margin-bottom: 15px; */
+}
+.report .data .box h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 15px;
+    width: 60px;
+    text-transform: capitalize;
+    /* padding: 5px 10px;
+    border-radius: 5px; */
+}
+.report .data .box p {
+    /* width: 200px;
+    min-width: 165px; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+@media (max-width: 991.90px) {
+    .report .data .box p {
+        width: 165px;
+    }
+}
+
+.report .operation a,
+.report .operation button {
+    display: block;
+    width: 150px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 12px;
+    color: var(--white);
+    text-transform: capitalize;
+    border: none;
+    cursor: pointer;
+}
+.report .operation .update {
+    background-color: var(--maincolor);
+    margin-bottom: 16px;
+}
+.report .operation .delete {
+    background-color: #bb0a11;
+}
+.report .type {
+    position: absolute;
+    top: 0;
+    writing-mode: vertical-lr;
+    padding: 10px 10px 35px 10px;
+    background-color: var(--maincolor);
+    background-color: #bb0a11;
+    text-transform: capitalize;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    right: 30px;
+    width: 40.69px;
+    height: calc(100% - 15px);
+}
+.report .type.missed {
+    background-color: #bb0a11;
+}
+.report .type.found {
+    background-color: var(--maincolor);
+
+}
+.report .type::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-color: transparent transparent #eee;
+    border-width: 20.345px;
+    border-style: solid;
+}
+@media (max-width: 767.90px) {
+    .report {
+        flex-direction: column;
+    }
+    .report .operation {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+    }
+    .report .operation .update {
+        margin: 0;
+    }
+    .report .operation a,
+    .report .operation button  {
+        padding: 8px;
+        flex: 1;
+    }
+}
+@media (max-width: 575.90px) {
+    .report {
+        padding: 10px;
+    }
+    .report .info {
+        gap: 10px;
+    }
+    .report .data .box h2 {
+        font-size: 14px;
+        width: 40px;
+    }
+    .report .data .box p {
+        flex: 1;
+        font-size: 12px;
+        width: 100px;
+    }
+    .report .operation a ,
+    .report .operation button {
+        padding: 8px;
+        flex: 1;
+    }
+    .report .type {
+        position: absolute;
+        top: 0;
+        writing-mode: vertical-lr;
+        padding: 10px 3px 25px 3px;
+        background-color: var(--maincolor);
+        background-color: #bb0a11;
+        text-transform: capitalize;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        right: 30px;
+        width: fit-content;
+        width: 22.09px;
+        height: unset;
+    }
+    .report .type::before {
+        border-width: 11.045px;
+    }
+}
+.msg-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.msg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 350px;
+    max-width: 100%;
+    /* background-color: #777; */
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 15px;
+    z-index: 301;
+    display: none;
+}
+.msg p {
+    font-size: 20px;
+    font-weight: bold;
+    /* color: white; */
+    /* margin-bottom: 30px; */
+    font-weight: bold;
+}
+.msg div {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+.msg div .cancle,
+.msg div .ok {
+    width: 85px;
+    padding: 15px;
+    background-color: var(--maincolor);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.success,
+.empty {
+    padding: 10px 20px;
+    background-color: #e4efff;
+    color: var(--maincolor);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.empty {
+    background-color: #fadbe2;
+    color: #bb0a11;
+    padding: 15px 20px;
+}

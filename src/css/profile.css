@@ -1,0 +1,63 @@
+.found-text {
+    background-color: #eee;
+    padding: 20px 0;
+    /* border-top: 1px solid #1365b2; */
+    margin-bottom: 30px;
+  }
+  .found-text h1 {
+    text-align: center;
+    color: #bb0a11;
+    font-size: 25px;
+}
+.profile .prosses-con {
+    max-width: 700px;
+    padding: 0 20px;
+    margin: auto;
+
+
+}
+.profile .prosses-con .info,
+.profile .prosses-con .password {
+    margin-bottom: 30px;
+}
+.profile .prosses-con .info .field {
+    margin-bottom: 20px;
+}
+.profile .prosses-con .name,
+.profile .prosses-con .new {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.profile .prosses-con .field .box,
+.profile .prosses-con .password .box {
+    flex: 1;
+}
+.profile .prosses-con .password .pass {
+    margin-bottom: 20px;
+}
+.profile .prosses-con input {
+    display: block;
+    width: 100%;
+    padding: 0 10px;
+    background-color: #efefef;
+    border-radius: 15px;
+    border: none;
+    height: 40px;
+}
+.profile .prosses-con input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 0 10px;
+    background-color: #efefef;
+    border-radius: 15px;
+    border: none;
+    height: 40px;
+    background-color: var(--maincolor);
+    color: var(--white);
+    text-transform: capitalize;
+}
+.profile .prosses-con input:focus {
+    border: none;
+    outline: 1px solid var(--maincolor);
+}
